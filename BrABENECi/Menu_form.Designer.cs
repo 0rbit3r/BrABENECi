@@ -41,17 +41,12 @@
             this.speed_label = new System.Windows.Forms.Label();
             this.statistics_group = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label_median_B = new System.Windows.Forms.Label();
-            this.label_median_G = new System.Windows.Forms.Label();
-            this.label_median_R = new System.Windows.Forms.Label();
             this.label_mean_B = new System.Windows.Forms.Label();
             this.label_best_B = new System.Windows.Forms.Label();
             this.label_mean_G = new System.Windows.Forms.Label();
             this.label_best_G = new System.Windows.Forms.Label();
             this.label_mean_R = new System.Windows.Forms.Label();
             this.label_best_R = new System.Windows.Forms.Label();
-            this.med_fit_label = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.avg_fit_label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,8 +54,9 @@
             this.generation_label = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Sim_control_group = new System.Windows.Forms.GroupBox();
-            this.Match_time_button = new System.Windows.Forms.Button();
-            this.speed_button = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.fast_forward_txtbox = new System.Windows.Forms.TextBox();
+            this.fast_forward_button = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.Match_time_txtbox = new System.Windows.Forms.TextBox();
             this.Battle_button = new System.Windows.Forms.Button();
@@ -81,9 +77,8 @@
             this.Mutation_txtbox = new System.Windows.Forms.TextBox();
             this.ticks_label = new System.Windows.Forms.Label();
             this.progress_label = new System.Windows.Forms.Label();
-            this.fast_forward_button = new System.Windows.Forms.Button();
-            this.fast_forward_txtbox = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Help_button = new System.Windows.Forms.Button();
             this.Save_load_group.SuspendLayout();
             this.statistics_group.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -172,7 +167,7 @@
             // speed_txt_box
             // 
             this.speed_txt_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.speed_txt_box.Location = new System.Drawing.Point(180, 16);
+            this.speed_txt_box.Location = new System.Drawing.Point(201, 16);
             this.speed_txt_box.Name = "speed_txt_box";
             this.speed_txt_box.Size = new System.Drawing.Size(58, 30);
             this.speed_txt_box.TabIndex = 3;
@@ -204,17 +199,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label_median_B);
-            this.groupBox1.Controls.Add(this.label_median_G);
-            this.groupBox1.Controls.Add(this.label_median_R);
             this.groupBox1.Controls.Add(this.label_mean_B);
             this.groupBox1.Controls.Add(this.label_best_B);
             this.groupBox1.Controls.Add(this.label_mean_G);
             this.groupBox1.Controls.Add(this.label_best_G);
             this.groupBox1.Controls.Add(this.label_mean_R);
             this.groupBox1.Controls.Add(this.label_best_R);
-            this.groupBox1.Controls.Add(this.med_fit_label);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.avg_fit_label);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -227,41 +217,11 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fitness";
             // 
-            // label_median_B
-            // 
-            this.label_median_B.AutoSize = true;
-            this.label_median_B.ForeColor = System.Drawing.Color.Aqua;
-            this.label_median_B.Location = new System.Drawing.Point(286, 87);
-            this.label_median_B.Name = "label_median_B";
-            this.label_median_B.Size = new System.Drawing.Size(18, 20);
-            this.label_median_B.TabIndex = 8;
-            this.label_median_B.Text = "0";
-            // 
-            // label_median_G
-            // 
-            this.label_median_G.AutoSize = true;
-            this.label_median_G.ForeColor = System.Drawing.Color.Lime;
-            this.label_median_G.Location = new System.Drawing.Point(227, 87);
-            this.label_median_G.Name = "label_median_G";
-            this.label_median_G.Size = new System.Drawing.Size(18, 20);
-            this.label_median_G.TabIndex = 8;
-            this.label_median_G.Text = "0";
-            // 
-            // label_median_R
-            // 
-            this.label_median_R.AutoSize = true;
-            this.label_median_R.ForeColor = System.Drawing.Color.Red;
-            this.label_median_R.Location = new System.Drawing.Point(168, 87);
-            this.label_median_R.Name = "label_median_R";
-            this.label_median_R.Size = new System.Drawing.Size(18, 20);
-            this.label_median_R.TabIndex = 8;
-            this.label_median_R.Text = "0";
-            // 
             // label_mean_B
             // 
             this.label_mean_B.AutoSize = true;
             this.label_mean_B.ForeColor = System.Drawing.Color.Aqua;
-            this.label_mean_B.Location = new System.Drawing.Point(286, 57);
+            this.label_mean_B.Location = new System.Drawing.Point(286, 79);
             this.label_mean_B.Name = "label_mean_B";
             this.label_mean_B.Size = new System.Drawing.Size(18, 20);
             this.label_mean_B.TabIndex = 8;
@@ -271,7 +231,7 @@
             // 
             this.label_best_B.AutoSize = true;
             this.label_best_B.ForeColor = System.Drawing.Color.Aqua;
-            this.label_best_B.Location = new System.Drawing.Point(286, 27);
+            this.label_best_B.Location = new System.Drawing.Point(286, 37);
             this.label_best_B.Name = "label_best_B";
             this.label_best_B.Size = new System.Drawing.Size(18, 20);
             this.label_best_B.TabIndex = 8;
@@ -281,7 +241,7 @@
             // 
             this.label_mean_G.AutoSize = true;
             this.label_mean_G.ForeColor = System.Drawing.Color.Lime;
-            this.label_mean_G.Location = new System.Drawing.Point(227, 57);
+            this.label_mean_G.Location = new System.Drawing.Point(227, 79);
             this.label_mean_G.Name = "label_mean_G";
             this.label_mean_G.Size = new System.Drawing.Size(18, 20);
             this.label_mean_G.TabIndex = 8;
@@ -291,7 +251,7 @@
             // 
             this.label_best_G.AutoSize = true;
             this.label_best_G.ForeColor = System.Drawing.Color.Lime;
-            this.label_best_G.Location = new System.Drawing.Point(227, 27);
+            this.label_best_G.Location = new System.Drawing.Point(227, 37);
             this.label_best_G.Name = "label_best_G";
             this.label_best_G.Size = new System.Drawing.Size(18, 20);
             this.label_best_G.TabIndex = 8;
@@ -301,7 +261,7 @@
             // 
             this.label_mean_R.AutoSize = true;
             this.label_mean_R.ForeColor = System.Drawing.Color.Red;
-            this.label_mean_R.Location = new System.Drawing.Point(168, 57);
+            this.label_mean_R.Location = new System.Drawing.Point(168, 79);
             this.label_mean_R.Name = "label_mean_R";
             this.label_mean_R.Size = new System.Drawing.Size(18, 20);
             this.label_mean_R.TabIndex = 8;
@@ -311,37 +271,17 @@
             // 
             this.label_best_R.AutoSize = true;
             this.label_best_R.ForeColor = System.Drawing.Color.Red;
-            this.label_best_R.Location = new System.Drawing.Point(168, 27);
+            this.label_best_R.Location = new System.Drawing.Point(168, 37);
             this.label_best_R.Name = "label_best_R";
             this.label_best_R.Size = new System.Drawing.Size(18, 20);
             this.label_best_R.TabIndex = 8;
             this.label_best_R.Text = "0";
             // 
-            // med_fit_label
-            // 
-            this.med_fit_label.AutoSize = true;
-            this.med_fit_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.med_fit_label.Location = new System.Drawing.Point(107, 87);
-            this.med_fit_label.Name = "med_fit_label";
-            this.med_fit_label.Size = new System.Drawing.Size(18, 20);
-            this.med_fit_label.TabIndex = 7;
-            this.med_fit_label.Text = "0";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(17, 87);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Median:";
-            // 
             // avg_fit_label
             // 
             this.avg_fit_label.AutoSize = true;
             this.avg_fit_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.avg_fit_label.Location = new System.Drawing.Point(107, 57);
+            this.avg_fit_label.Location = new System.Drawing.Point(107, 79);
             this.avg_fit_label.Name = "avg_fit_label";
             this.avg_fit_label.Size = new System.Drawing.Size(18, 20);
             this.avg_fit_label.TabIndex = 5;
@@ -351,7 +291,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(17, 57);
+            this.label3.Location = new System.Drawing.Point(17, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 20);
             this.label3.TabIndex = 4;
@@ -361,7 +301,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(17, 27);
+            this.label2.Location = new System.Drawing.Point(17, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 20);
             this.label2.TabIndex = 2;
@@ -371,7 +311,7 @@
             // 
             this.best_fit_label.AutoSize = true;
             this.best_fit_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.best_fit_label.Location = new System.Drawing.Point(107, 27);
+            this.best_fit_label.Location = new System.Drawing.Point(107, 37);
             this.best_fit_label.Name = "best_fit_label";
             this.best_fit_label.Size = new System.Drawing.Size(18, 20);
             this.best_fit_label.TabIndex = 3;
@@ -402,8 +342,6 @@
             this.Sim_control_group.Controls.Add(this.label10);
             this.Sim_control_group.Controls.Add(this.fast_forward_txtbox);
             this.Sim_control_group.Controls.Add(this.fast_forward_button);
-            this.Sim_control_group.Controls.Add(this.Match_time_button);
-            this.Sim_control_group.Controls.Add(this.speed_button);
             this.Sim_control_group.Controls.Add(this.label9);
             this.Sim_control_group.Controls.Add(this.Match_time_txtbox);
             this.Sim_control_group.Controls.Add(this.Battle_button);
@@ -420,27 +358,32 @@
             this.Sim_control_group.TabStop = false;
             this.Sim_control_group.Text = "Simulation control";
             // 
-            // Match_time_button
+            // label10
             // 
-            this.Match_time_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Match_time_button.Location = new System.Drawing.Point(244, 49);
-            this.Match_time_button.Name = "Match_time_button";
-            this.Match_time_button.Size = new System.Drawing.Size(36, 26);
-            this.Match_time_button.TabIndex = 12;
-            this.Match_time_button.Text = "GO";
-            this.Match_time_button.UseVisualStyleBackColor = true;
-            this.Match_time_button.Click += new System.EventHandler(this.Match_time_button_Click);
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(198, 222);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 13);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "generations";
             // 
-            // speed_button
+            // fast_forward_txtbox
             // 
-            this.speed_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.speed_button.Location = new System.Drawing.Point(244, 16);
-            this.speed_button.Name = "speed_button";
-            this.speed_button.Size = new System.Drawing.Size(36, 30);
-            this.speed_button.TabIndex = 11;
-            this.speed_button.Text = "GO";
-            this.speed_button.UseVisualStyleBackColor = true;
-            this.speed_button.Click += new System.EventHandler(this.speed_button_Click);
+            this.fast_forward_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.fast_forward_txtbox.Location = new System.Drawing.Point(144, 217);
+            this.fast_forward_txtbox.Name = "fast_forward_txtbox";
+            this.fast_forward_txtbox.Size = new System.Drawing.Size(48, 23);
+            this.fast_forward_txtbox.TabIndex = 14;
+            // 
+            // fast_forward_button
+            // 
+            this.fast_forward_button.Location = new System.Drawing.Point(12, 212);
+            this.fast_forward_button.Name = "fast_forward_button";
+            this.fast_forward_button.Size = new System.Drawing.Size(126, 32);
+            this.fast_forward_button.TabIndex = 13;
+            this.fast_forward_button.Text = "Fast forward:";
+            this.fast_forward_button.UseVisualStyleBackColor = true;
+            this.fast_forward_button.Click += new System.EventHandler(this.fast_forward_button_Click);
             // 
             // label9
             // 
@@ -455,7 +398,7 @@
             // Match_time_txtbox
             // 
             this.Match_time_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Match_time_txtbox.Location = new System.Drawing.Point(180, 49);
+            this.Match_time_txtbox.Location = new System.Drawing.Point(201, 49);
             this.Match_time_txtbox.Name = "Match_time_txtbox";
             this.Match_time_txtbox.Size = new System.Drawing.Size(58, 26);
             this.Match_time_txtbox.TabIndex = 9;
@@ -570,9 +513,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.Location = new System.Drawing.Point(171, 17);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(245, 20);
+            this.label5.Size = new System.Drawing.Size(249, 20);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Parties x race members per battle";
+            this.label5.Text = "Parties x race members per battle:";
             // 
             // Evol_control_group
             // 
@@ -641,6 +584,7 @@
             this.Mutation_txtbox.TabIndex = 0;
             this.Mutation_txtbox.Text = "4";
             this.Mutation_txtbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Mutation_txtbox.TextChanged += new System.EventHandler(this.Mutation_txtbox_TextChanged);
             // 
             // ticks_label
             // 
@@ -660,38 +604,32 @@
             this.progress_label.TabIndex = 10;
             this.progress_label.Text = "Idle";
             // 
-            // fast_forward_button
+            // label4
             // 
-            this.fast_forward_button.Location = new System.Drawing.Point(12, 212);
-            this.fast_forward_button.Name = "fast_forward_button";
-            this.fast_forward_button.Size = new System.Drawing.Size(126, 32);
-            this.fast_forward_button.TabIndex = 13;
-            this.fast_forward_button.Text = "Fast forward:";
-            this.fast_forward_button.UseVisualStyleBackColor = true;
-            this.fast_forward_button.Click += new System.EventHandler(this.fast_forward_button_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 291);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "By Aleš Kakos";
             // 
-            // fast_forward_txtbox
+            // Help_button
             // 
-            this.fast_forward_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.fast_forward_txtbox.Location = new System.Drawing.Point(144, 217);
-            this.fast_forward_txtbox.Name = "fast_forward_txtbox";
-            this.fast_forward_txtbox.Size = new System.Drawing.Size(48, 23);
-            this.fast_forward_txtbox.TabIndex = 14;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(198, 222);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 13);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "generations";
+            this.Help_button.Location = new System.Drawing.Point(30, 347);
+            this.Help_button.Name = "Help_button";
+            this.Help_button.Size = new System.Drawing.Size(107, 37);
+            this.Help_button.TabIndex = 12;
+            this.Help_button.Text = "Help";
+            this.Help_button.UseVisualStyleBackColor = true;
+            this.Help_button.Click += new System.EventHandler(this.Help_button_Click);
             // 
             // Menu_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(712, 452);
+            this.Controls.Add(this.Help_button);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.progress_label);
             this.Controls.Add(this.ticks_label);
             this.Controls.Add(this.Evol_control_group);
@@ -733,8 +671,6 @@
         private System.Windows.Forms.Label speed_label;
         private System.Windows.Forms.GroupBox statistics_group;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label med_fit_label;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label avg_fit_label;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -751,14 +687,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox Match_time_txtbox;
         public System.Windows.Forms.Timer Sim_timer;
-        private System.Windows.Forms.Button speed_button;
-        private System.Windows.Forms.Button Match_time_button;
         public System.Windows.Forms.Button Battle_button;
         public System.Windows.Forms.Button Start_button;
         public System.Windows.Forms.Button Next_gen_button;
-        private System.Windows.Forms.Label label_median_B;
-        private System.Windows.Forms.Label label_median_G;
-        private System.Windows.Forms.Label label_median_R;
         private System.Windows.Forms.Label label_mean_B;
         private System.Windows.Forms.Label label_best_B;
         private System.Windows.Forms.Label label_mean_G;
@@ -778,6 +709,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox fast_forward_txtbox;
         private System.Windows.Forms.Button fast_forward_button;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button Help_button;
     }
 }
 

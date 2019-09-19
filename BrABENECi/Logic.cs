@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BrABENECi
 {
-    class Logic
+    class Logic //Logika obstarává výpočty simulace
     {
         static System.Windows.Forms.Timer timer;
         static System.Windows.Forms.Form sim_form;
@@ -18,7 +18,7 @@ namespace BrABENECi
 
         public static int PARTY_SIZE = 15; //Party je velikost členů jedné rasy, než se zaplní prostor ve formu
         public static int parties_num; //Kolikátá party se testuje/simuluje
-        public static int current_party;
+        public static int current_party; //Skupina brabenců, která je v současnosti na obrazovce
 
         public static int DMG_PTS_MULTIPLIER = 1;
         public static int KILL_PTS = 100;
@@ -28,8 +28,8 @@ namespace BrABENECi
         public static int elapsed_ticks;
         public static int match_ticks = 400;
 
-        public static bool Collisions = true;
-        public static int agents_in_race;
+        public static bool Collisions = true; //Kolize zamezují brabencům, aby sebou procházeli
+        public static int agents_in_race; //Počet brabenců jedné barvy (třetina celkového počtu)
         public static int num_of_agents;
         public static Agent[] Reds;
         public static Agent[] Greens;
@@ -99,9 +99,9 @@ namespace BrABENECi
                 agents[i].pos_X = x;
                 agents[i].pos_Y = y;
             }
-        }
+        }//Náhodné rozesetí agentů po obrazovce
 
-        static int Get_dist(Agent first, Agent second)
+        static int Get_dist(Agent first, Agent second)//Vzdálenost mezi dvěma agenty
         {
             return (int)Math.Sqrt(Math.Pow(first.pos_X - second.pos_X, 2) + Math.Pow(first.pos_Y - second.pos_Y, 2));
         }
@@ -117,7 +117,7 @@ namespace BrABENECi
             return angle;
         }
 
-        static bool Is_in_sight(Agent first, Agent second, out double[] vis_input)//Input se vytváří
+        static bool Is_in_sight(Agent first, Agent second, out double[] vis_input)//Zjistí, jestli jeden vidí druhého a případně mu přiřadí visuální vstup
         {
             int dist = Get_dist(first, second);
             vis_input = new double[Agent.EYES_NUM];
@@ -216,7 +216,7 @@ namespace BrABENECi
                     if (!fast_forward)
                         Visual_bridge.Kill_agent(agent.pos_X, agent.pos_Y, agent.max_health);
             }
-        }
+        }//zjistí, co má každý brabenec za lubem podle jeho visuálního vstupu
 
         public static void Fire(Agent agent)
         {
@@ -271,7 +271,7 @@ namespace BrABENECi
                 Visual_bridge.Kill_agent(agent.pos_X, agent.pos_Y, agent.max_health);
                 Visual_bridge.Draw_dead_bullet(agent.pos_X, agent.pos_Y, agent.orient);
             }
-        }
+        }//Obstarává střelbu daného agenta
 
         public static void Do_sim_tick()
         {
@@ -306,7 +306,7 @@ namespace BrABENECi
             }
         }
 
-        public static void Simulate_battle()
+        public static void Simulate_battle()//Má na starosti bitvy a jejich správný průběh
         {
             timer.Enabled = false;
             if(current_party >= parties_num) //Keeps control over which battle goes on
@@ -327,7 +327,7 @@ namespace BrABENECi
             }
         }
 
-        public static void Finish_simulation()
+        public static void Finish_simulation()//Získá data, vyvine populace a rovnou zavolá Simulate_battle() pro započetí nové bitvy
         {
             current_party = 0;
             battled_flag = new bool[3, agents_in_race];
@@ -352,7 +352,7 @@ namespace BrABENECi
             }
         }
 
-        public static void Divide_agents()
+        public static void Divide_agents() //Vytvoří pole současných agentů z jednotlivých barev
         {
             Current_agents = new Agent[PARTY_SIZE * 3];
             int rand_num;
@@ -374,7 +374,7 @@ namespace BrABENECi
             }
         }
 
-        static int Find_unoccupied(int race)
+        static int Find_unoccupied(int race)//Najde prázdné místo na mapě
         {
             int rand_num = rand.Next(0, agents_in_race);
             while (battled_flag[race, rand_num] == true)
@@ -392,13 +392,12 @@ namespace BrABENECi
             sim_in_progress = false;
             Visual_bridge.Reset();
             Generation_init();
-        }
+        }//Zruší bitvu
 
-        public static void Get_stats(Agent[] agents, out int best_fitness, out int mean_fitness, out int median_fitness)
+        public static void Get_stats(Agent[] agents, out int best_fitness, out int mean_fitness, out int median_fitness)//Zjistí průměr a nejlepší výkon
         {
             int best = 0;
             int sum = 0;
-            int median = 0;
             foreach (Agent agent in agents)
             {
                 if (agent.fitness > best)
@@ -410,12 +409,12 @@ namespace BrABENECi
             median_fitness = 0;
         }
 
-        public static void Evolve_population()
+        public static void Evolve_population()//Zavolá evoluční algooritmus na každou barvu
         {
             Genetic_algorithm.last_id = 0;
-            Reds = Genetic_algorithm.Evolve(Reds, Convert.ToInt32(menu_form.Mutation_txtbox.Text));
-            Greens = Genetic_algorithm.Evolve(Greens, Convert.ToInt32(menu_form.Mutation_txtbox.Text));
-            Blues = Genetic_algorithm.Evolve(Blues, Convert.ToInt32(menu_form.Mutation_txtbox.Text));
+            Reds = Genetic_algorithm.Evolve(Reds);
+            Greens = Genetic_algorithm.Evolve(Greens);
+            Blues = Genetic_algorithm.Evolve(Blues);
 
             for (int j = 0; j < agents_in_race; j++)
                 All_agents[j] = Reds[j];

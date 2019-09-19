@@ -15,7 +15,7 @@ namespace BrABENECi
         public int third_level_size;
         public double[] output;
 
-        public Neural_network(char[] genome, int sensor_num, int out_num, int offset)
+        public Neural_network(char[] genome, int sensor_num, int out_num, int offset)//Vytvoří neuronovou síť podle zadaného genomu
         {
             first_level_size = sensor_num;
             third_level_size = out_num;
@@ -41,7 +41,7 @@ namespace BrABENECi
             }
         }
 
-        public void Propagate(double[] input)
+        public void Propagate(double[] input)//Podle vstupu vytvoří výstup neuronové sítě
         {
             double[] sec_level = new double[sec_level_size];
 
@@ -67,7 +67,7 @@ namespace BrABENECi
             }
         }
 
-        double Activation_function(double sum)
+        double Activation_function(double sum)//Aktivační fuknce
         {
             return (Math.Exp(sum) - Math.Exp(-sum)) / (Math.Exp(sum) + Math.Exp(-sum));
         }

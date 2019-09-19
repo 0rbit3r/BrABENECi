@@ -43,7 +43,7 @@ namespace BrABENECi
         public int enemies_killed;
         
 
-        public Agent(int id, int color)
+        public Agent(int id, int color)//Vytvoří agenta dané barvy a id
         {
             this.id = id;
             this.color = color;
@@ -65,7 +65,7 @@ namespace BrABENECi
 
         }
 
-        public Agent(Agent mother, Agent father)
+        public Agent(Agent mother, Agent father)//Vytvoří syna z mámy a táty
         {
             Agent[] parents = { mother, father };
             genome = new char[GENOME_LENGTH];
@@ -95,7 +95,7 @@ namespace BrABENECi
             }
         }
 
-        void Generate_genome()
+        void Generate_genome()//Náhodně vytvoří genom
         {
             genome = new char[GENOME_LENGTH];
             for (int i = 0; i < GENOME_LENGTH; i++)
@@ -104,7 +104,7 @@ namespace BrABENECi
             }
         }
 
-        public void Get_fenotype()
+        public void Get_fenotype()//Z genomu nastaví yagentovi vlastnosti
         {
             max_health = Convert.ToInt32(Convert.ToString(genome[0]) + Convert.ToString(genome[1]));
             if (max_health == 0)
@@ -125,13 +125,13 @@ namespace BrABENECi
             brain = new Neural_network(genome, SENSOR_NUM, OUTPUT_NUM, GEN_AI_START );
         }
 
-        public void Make_decision()
+        public void Make_decision()//Zjistí, co má agent za lubem podle jeho mozečku
         {
             brain.Propagate(input);
             //Output je uložen v mozku
         }
 
-        public void Commit_move()
+        public void Commit_move()//Nastaví pozice, aby odpovídali agentovo rozhodnutí
         {
             int old_X = 0;
             int old_Y = 0;

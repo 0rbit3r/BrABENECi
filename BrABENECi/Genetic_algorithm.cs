@@ -12,10 +12,9 @@ namespace BrABENECi
         public static int IMPROVING_PARENT_CYCLES = 2;
         public static int last_id;
 
-        public static Agent[] Evolve(Agent[] Population, int mutation_thresh)
+        public static Agent[] Evolve(Agent[] Population)
         {
             last_id++;
-            MUTATION_RATE_THRESH = mutation_thresh;
             Agent[] New_population = new Agent[Population.Length];
             New_population[0] = Get_best_agent(Population);
             New_population[0].id = 0 + last_id;
